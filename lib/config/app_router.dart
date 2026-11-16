@@ -6,7 +6,13 @@ final GoRouter goRouter = GoRouter(
   initialLocation: '/login',
 
   routes: [
-    GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
+    GoRoute(
+      path: '/',
+      builder: (context, state) {
+        final user = state.extra as String;
+        return HomeScreen(user: user);
+      },
+    ),
     GoRoute(path: '/login', builder: ((context, state) => const LoginScreen())),
   ],
 );

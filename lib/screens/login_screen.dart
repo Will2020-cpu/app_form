@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final password = _passwordController.text;
 
     if (users.containsKey(username) && users[username] == password) {
-      context.go('/');
+      context.go('/', extra: username);
       return;
     }
     setState(() {

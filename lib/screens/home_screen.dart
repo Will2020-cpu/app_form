@@ -1,22 +1,16 @@
+import 'package:app_form/components/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final String user;
+  const HomeScreen({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Inicio')),
-
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.go('/login');
-          },
-          child: const Text('Ir a inicio de sesion'),
-        ),
-      ),
+      drawer: AppDrawer(user: user),
+      body: const Center(child: Text('Bienvenido a la aplicacion')),
     );
   }
 }
